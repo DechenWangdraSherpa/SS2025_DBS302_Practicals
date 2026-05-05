@@ -260,7 +260,9 @@ However, when the connection was attempted, the following error appeared:
 
 Upon investigation, the root cause was identified by checking the Redis server version:
 
-The installed version does not include TLS support. so TLS connections cannot be negotiated regardless of the configuration.
+![alt text](images/1.png)
+
+The installed version does not include TLS build support. so TLS connections cannot be negotiated regardless of the configuration.
 
 ---
 
