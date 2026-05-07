@@ -273,7 +273,7 @@ The installed version does not include TLS build support. so TLS connections can
 * Unauthorized key access attempts were blocked.
 
 ---
-## 7. Conclusion
+## Conclusion
 
 This part of the practical covered the key steps for securing a Redis server. The default open access was replaced with a proper multi-user ACL system where each user had only the permissions needed for their role. TLS was then layered on top, ensuring that all traffic between the client and server is encrypted and that plain-text connections are no longer possible.
 
