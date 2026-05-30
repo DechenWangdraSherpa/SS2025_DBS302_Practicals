@@ -1,0 +1,40 @@
+version: "3.9"
+
+services:
+  redis:
+    image: redis:7.2
+    container_name: redis_social
+    ports:
+      - "6379:6379"
+    command: redis-server --save 60 1 --loglevel warning
+    volumes:
+      - redis_data:/data
+
+  mongodb:
+    image: mongo:7.0
+    container_name: mongo_social
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password123
+    volumes:
+      - mongo_data:/data/db
+
+  cassandra:
+    image: cassandra:4.1
+    container_name: cassandra_social
+    ports:
+      - "9042:9042"
+    environment:
+      - CASSANDRA_CLUSTER_NAME=SocialCluster
+      - CASSANDRA_DC=datacenter1
+      - HEAP_NEWSIZE=128M
+      - MAX_HEAP_SIZE=512M
+    volumes:
+      - cassandra_data:/var/lib/cassandra
+
+volumes:
+  redis_data:
+  mongo_data:
+  cassandra_data:
